@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4rem;
+  background-color: rgb(40, 44, 52);
+}
+
+.content {
+  padding: 1rem;
+}
+.headerText {
+  font-size: 2rem;
+  color: #f5f5f5;
+}
+
+.jsonName {
+  font-size: 1rem;
+  color: #000;
+}
+
+.lottie_box {
+  width: 100vw;
+  height: 80vh;
+}
+
+.control_box {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  flex-wrap: wrap;
+}
+
+.lottie_loading_box {
+  width: 100vw;
+  height: 40vh;
+}
+.button {
+  padding: 0.5rem;
+  height: 2rem;
+  line-height: 2rem;
+  background-color: blueviolet;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.item {
+  padding: 1rem;
+}
