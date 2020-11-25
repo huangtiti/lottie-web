@@ -3,6 +3,7 @@ import json1 from "../json/json1.json";
 import json2 from "../json/json2.json";
 import json3 from "../json/json3.json";
 import json4 from "../json/json4.json";
+import loadingText from "../json/loadingText.json";
 
 const lottieJsonList: { json: any; name: string; id: string }[] = [
   { json: json0, name: "loading", id: "loading" },
@@ -10,6 +11,7 @@ const lottieJsonList: { json: any; name: string; id: string }[] = [
   { json: json2, name: "骑滑板车上班", id: "car" },
   { json: json3, name: "在线换装", id: "clothes" },
   { json: json4, name: "小黄人", id: "yellowMan" },
+  { json: loadingText, name: "带文字的loading", id: "loadingText" },
   {
     json: "https://assets10.lottiefiles.com/packages/lf20_4yzgsny3.json",
     name: "射箭",

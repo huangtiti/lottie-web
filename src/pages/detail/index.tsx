@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import lottie, { AnimationItem } from "lottie-web";
+import get from "lodash/get";
 import { lottieJsonList } from "../../config";
 import ControlButton from "../../components/controlButton";
+
 interface IProps {
   [props: string]: any;
 }
@@ -78,8 +80,8 @@ const Detail: React.FC<IProps> = (props) => {
     }
     return { json, name: jsonData.name };
   };
+
   const initWithEvent = useCallback(async () => {
-    console.log(11);
     const { json, name } = await getJSON();
     if (isLoading) {
       if (Object.keys(animObj).length !== 0) {
@@ -117,7 +119,7 @@ const Detail: React.FC<IProps> = (props) => {
 
   return (
     <div className="container">
-      <span>{`动画总帧数:${animObj.totalFrames}`}</span>
+      <span>{`动画总帧数:${get(animObj, "totalFrames", 0)}`}</span>
       <span>{`动画当前帧数:${nowFrame}`}</span>
       <span>{`动画总时间:${duration}`}</span>
       <ControlButton

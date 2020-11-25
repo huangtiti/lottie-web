@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { AnimationItem } from "lottie-web";
-import Lottie from "lottie-web";
 import _ from "lodash";
+
+const lottieAPI: any = require("lottie-api");
 
 type AnimationRealItem = AnimationItem & {
   totalFrames: number;
@@ -71,6 +72,34 @@ const ControlButton: React.FC<IProps> = (props) => {
     setIsDestroy(!isDestroy);
   };
 
+  const toggleChangeText = () => {
+    // 方法1
+    const api = lottieAPI.createAnimationApi(props.animObj);
+    const elements = api.getKeyPath("Loading...");
+    if (elements.getElements().length === 0) {
+      window.alert("没有文本");
+      return;
+    }
+    elements.getElements()[0].setText("Load"); // 有的文案设置显示不出来，很奇怪
+    // // 方法2 svg修改不了
+    // const element = document.getElementById("loading");
+    // (element as Element).setAttribute("font-size", "124");
+  };
+
+  const toggleChangeImg = () => {
+    const imgElement = _.get(props.animObj, "renderer.elements[10].innerElem");
+    if (_.isUndefined(imgElement)) {
+      window.alert("没有该图片资源");
+      return;
+    }
+    imgElement.setAttributeNS(
+      "http://www.w3.org/1999/xlink",
+      "href",
+      "https://gw.alipayobjects.com/mdn/rms_91e1e4/afts/img/A*2mfsTo-gbDgAAAAAAAAAAABkARQnAQ"
+    );
+    // imgElement.style.width = 400;
+    // imgElement.style.height = 400;
+  };
   const controlList = [
     { name: isPlay ? "暂停" : "播放", onClick: togglePlay },
     { name: `设置速度：当前速度${curSpeed}`, onClick: toggleSpeed },
@@ -87,6 +116,14 @@ const ControlButton: React.FC<IProps> = (props) => {
     {
       name: `${isDestroy ? "重建动画" : "销毁动画"}`,
       onClick: toggleIfDestroy,
+    },
+    {
+      name: "修改文本内容",
+      onClick: toggleChangeText,
+    },
+    {
+      name: "替换图片",
+      onClick: toggleChangeImg,
     },
   ];
   if (_.isUndefined(props.animObj.totalFrames)) return null;

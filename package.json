@@ -1,6 +1,6 @@
 {
   "name": "lottie-web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "./",
   "private": true,
   "dependencies": {
@@ -16,7 +16,8 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "typescript": "3.5.3",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "lottie-api": "^1.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
